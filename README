@@ -1,0 +1,32 @@
+
+
+A first cake app which stores the full cake dist alongside the app defn in git.
+
+Prereqs for this:
+
+As root...
+
+apt-get install apache2 libapache2-mod-php5 php5-mysql
+a2enmod rewrite
+
+
+
+Particularly for ubuntu distributions, edit /etc/apache2/sites-available/default and change
+
+        <Directory /var/www/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+
+to 
+
+        <Directory /var/www/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+        </Directory>
+
