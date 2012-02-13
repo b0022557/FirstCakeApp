@@ -11,6 +11,7 @@ use placements;
 
 DROP TABLE IF EXISTS courses;
 DROP TABLE IF EXISTS students;
+DROP TABLE IF EXISTS courses_students;
 DROP TABLE IF EXISTS employers;
 DROP TABLE IF EXISTS jobdescriptions;
 DROP TABLE IF EXISTS jobapplications;
@@ -29,6 +30,12 @@ id INT(10) NOT NULL AUTO_INCREMENT,
 student_code VARCHAR(32),
 student_name VARCHAR(128),
 PRIMARY KEY(id)
+);
+
+/* ID is optional on join tables for cake framework */
+CREATE TABLE courses_students (
+course_id INT(10),
+student_id INT(10)
 );
 
 CREATE TABLE employers (
@@ -80,3 +87,4 @@ INSERT INTO employers values (1,  'Slate Rock and Gravel Company');
 INSERT INTO jobdescriptions values ( 1, 'Rock Smasher', 1);
 
 INSERT INTO jobapplications values ( 1, 1, 1, 1 );
+insert into courses_students ( 1,1 );
