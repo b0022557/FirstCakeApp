@@ -9,6 +9,7 @@ grant all on placements.* to "placements"@"%" identified by "placepass";
 use placements;
 
 DROP TABLE IF EXISTS students;
+DROP TABLE IF EXISTS employers;
 DROP TABLE IF EXISTS jobdescriptions;
 DROP TABLE IF EXISTS jobdescriptions_students;
 
@@ -18,9 +19,16 @@ student_code VARCHAR(32),
 student_name VARCHAR(128),
 PRIMARY KEY(id));
 
+CREATE TABLE employers (
+id INT(10) NOT NULL AUTO_INCREMENT,
+employer_name VARCHAR(128),
+PRIMARY KEY(id));
+
+
 CREATE TABLE jobdescriptions (
 id INT(10) NOT NULL AUTO_INCREMENT,
 job_title VARCHAR(128),
+employers_id INT(10) NOT NULL,
 PRIMARY KEY(id));
 
 CREATE TABLE jobdescriptions_students (
@@ -29,4 +37,6 @@ CREATE TABLE jobdescriptions_students (
 );
 
 
-INSERT INTO STUDENTS values (null, "7466666", "Flintstone, Fred");
+INSERT INTO students values (1, "7466666", "Flintstone, Fred");
+INSERT INTO employers values (1,  'Slate Rock and Gravel Company');
+INSERT INTO jobdescriptions values ( 1, 'Rock Smasher', 1);
