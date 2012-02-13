@@ -5,7 +5,7 @@ class Employer extends AppModel {
     var $hasMany = array(
         'Jobdescription' => array(
             'className'     => 'Jobdescription',
-            'foreignKey'    => 'employers_id',
+            'foreignKey'    => 'employer_id',
             'dependent'     => true
         )    
     );  
