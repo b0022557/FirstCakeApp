@@ -8,6 +8,11 @@ As root...
 
 apt-get install apache2 libapache2-mod-php5 php5-mysql
 a2enmod rewrite
+a2enmod userdir
+
+mod_userdir looks in a directory called public_html in the user home directory, and enables urls like localhost/~student/...
+
+
 
 
 
@@ -30,3 +35,21 @@ to
                 allow from all
         </Directory>
 
+
+And add
+
+       <Directory /home/*/public_html>
+            AllowOverride All
+            Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
+            <Limit GET POST OPTIONS>
+                Order allow,deny
+                Allow from all
+            </Limit>
+            <LimitExcept GET POST OPTIONS>
+                Order deny,allow
+                Deny from all
+            </LimitExcept>
+        </Directory>
+
+
+You will also need to edit /etc/apache2/mods-enabled/php5.conf and change the Php enabled setting
