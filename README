@@ -12,6 +12,8 @@ a2enmod userdir
 
 mod_userdir looks in a directory called public_html in the user home directory, and enables urls like localhost/~student/...
 
+http://planetcakephp.org/aggregator/items/2608-cakephp-userdir-and-modrewrite
+
 
 
 
