@@ -5,6 +5,9 @@ class Jobdescription extends AppModel {
     var $belongsTo = array (
       'Employer' => array (
         'ClassName' => 'Employer'
+      ),
+      'Statuscode' => array (
+        'ClassName' => 'Statuscode'
       )
     );
 }
